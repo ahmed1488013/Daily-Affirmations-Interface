@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Affirmations App</title>
+    <style>
+        /* General settings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF0E1; /* Light peach */
+            color: #2F4F4F; /* Dark slate gray */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Affirmation styling */
+        .affirmation {
+            font-style: italic;
+            font-size: 20px;
+            max-width: 600px;
+            word-wrap: break-word;
+            margin-bottom: 20px;
+        }
+
+        /* Save button styling */
+        .save-btn {
+            background-color: #FF7F50; /* Coral */
+            color: white;
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover effect for save button */
+        .save-btn:hover {
+            background-color: #FF5733; /* Dark coral on hover */
+        }
+
+        /* Saved message styling */
+        .saved-message {
+            margin-top: 20px;
+            color: #FF5733;
+            font-size: 16px;
+        }
+
+        /* Mobile responsive layout */
+        @media (max-width: 600px) {
+            .affirmation {
+                font-size: 18px;
+                margin: 10px;
+            }
+
+            .save-btn {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Daily Affirmations App</h1>
+    
+    <!-- Display daily affirmation -->
+    <div class="affirmation">
+        "Each day is a new opportunity to succeed."
+    </div>
+    
+    <!-- Save button -->
+    <button class="save-btn" id="saveButton">Save to Favorites</button>
+
+    <!-- Saved message -->
+    <div class="saved-message" id="savedMessage" style="display: none;">Saved to Favorites!</div>
+
+    <script>
+        // Save affirmation functionality
+        const saveButton = document.getElementById("saveButton");
+        const savedMessage = document.getElementById("savedMessage");
+
+        saveButton.addEventListener("click", () => {
+            saveButton.innerText = "Saved!";
+            savedMessage.style.display = "block";
+            setTimeout(() => {
+                savedMessage.style.display = "none";
+                saveButton.innerText = "Save to Favorites";
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
